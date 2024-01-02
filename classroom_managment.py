@@ -50,15 +50,16 @@ def add_student(name, email=None):
     'grade': initialize with empty list
     """
     if email==None:
-        email=f"{name.lower()}@example.com"
-    classroom.append({'name':name,'email':email,'grades':[]})
-
+        # email=f"{name.lower()}@example.com"
+        classroom.append({'name':name,'email':f"{name.lower()}@example.com",'grades':[]})
+    else:
+         classroom.append({'name':name,'email':email,'grades':[]})
 
 
 def delete_student(name):
     """Delete a student from the classroom"""
     i=index_student(name)
-    classroom[i].clear()
+    classroom.remove(classroom[i])
 
 
 def set_email(name, email):
@@ -102,6 +103,7 @@ def get_professions(name):
 
 
 # add_student('Joe')
+# add_student('Yoram','yor@walla.com')
 # delete_student('Charlie')
 # set_email('Bob','bob@gmail.com')
 # add_grade('Bob','physics',80)
